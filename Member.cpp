@@ -36,6 +36,10 @@ return counter;
 
 //folow Member//
 void Member::follow(Member& name){
+	 if(this == &name){
+        printf("You cant follow yourself, please enter other name");
+        return;
+    }
 	if (find(following.begin(), following.end(), &name) == following.end()) 
 	{
 		following.push_back(&name);
@@ -44,6 +48,10 @@ void Member::follow(Member& name){
 }
 //unfollow Member//
 void Member::unfollow(Member& name){
+	 if(this == &name){
+        printf("You cant unfollow yourself, please enter other name");
+        return;
+    }
 	following.remove(&name);
 	name.followers.remove(this);
 }
